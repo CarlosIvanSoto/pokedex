@@ -1,5 +1,5 @@
+import Col from "@/components/Col"
 import Pokemon from "@/components/Pokemon"
-import Modal from "@/components/Modal"
 
 async function getPoke(id: string) {
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
@@ -9,8 +9,8 @@ async function getPoke(id: string) {
 export default async function Page({ params }: { params: { id: string } }) {
   const pokemon = await getPoke(params.id)
   return (
-    <Modal>
+    <Col>
       <Pokemon pokemon={pokemon}/>
-    </Modal>
+    </Col>
   )
 }

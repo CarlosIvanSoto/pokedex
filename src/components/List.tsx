@@ -37,8 +37,10 @@ type Ability = {
 const List = () => {
   const { pokemons } = store.getState().poke
   return (
-    <div className="row row-cols-md-3 row-cols-lg-6 g-2">
-      {pokemons.map(ItemArtwork)}
+    <div className='container'>
+      <div className="row row-cols-md-3 row-cols-lg-3 g-2">
+        {pokemons.map(ItemArtwork)}
+      </div>
     </div>
   )
 }

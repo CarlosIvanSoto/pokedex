@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation'
 import React, { MouseEventHandler, useCallback, useEffect, useRef } from 'react'
 
-const Modal = ({children}:any) => {
+const Modal = ({children}:{children: React.ReactNode}) => {
   const overlay = useRef(null)
   const wrapper = useRef(null)
   const router = useRouter()
@@ -31,7 +31,7 @@ const Modal = ({children}:any) => {
   }, [onKeyDown])
   
   return (
-    <>
+    <div className='container'>
       <div ref={overlay} className='modal-backdrop fade show'></div>
       <div ref={wrapper} className="modal fade show" tabIndex={-1} style={{display: 'block'}} >
         <div className="modal-dialog">
@@ -45,7 +45,7 @@ const Modal = ({children}:any) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

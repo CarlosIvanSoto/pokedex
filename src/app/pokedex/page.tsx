@@ -16,11 +16,5 @@ export default async function Page() {
     store.dispatch(setPokemons(results))
     store.dispatch(setNext(next))
   }
-  return (
-    <div className='container'>
-      <div className='mt-2'>
-        <List />
-      </div>
-    </div>
-  )
+  return <List />
 }
