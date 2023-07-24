@@ -1,4 +1,5 @@
 import Col from "@/components/Col"
+import Modal from "@/components/Modal"
 import Pokemon from "@/components/Pokemon"
 
 async function getPoke(id: string) {
@@ -9,8 +10,8 @@ async function getPoke(id: string) {
 export default async function Page({ params }: { params: { id: string } }) {
   const pokemon = await getPoke(params.id)
   return (
-    <Col>
+    <Modal>
       <Pokemon pokemon={pokemon}/>
-    </Col>
+    </Modal>
   )
 }

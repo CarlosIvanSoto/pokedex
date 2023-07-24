@@ -1,8 +1,9 @@
 'use client'
-import { useRouter } from 'next/navigation'
 import React, { useCallback, useEffect, useRef } from 'react'
+import Col from './Col'
+import { useRouter } from 'next/navigation'
 
-const Modal = ({children}:{children: React.ReactNode}) => {
+const ModalCol = ({children}:{children: React.ReactNode}) => {
   const wrapper = useRef(null)
   const router = useRouter()
 
@@ -29,24 +30,12 @@ const Modal = ({children}:{children: React.ReactNode}) => {
     document.addEventListener('keydown', onKeyDown)
     return () => document.removeEventListener('keydown', onKeyDown)
   }, [onKeyDown])
-  
   return (
-    <>
-      <div className='modal-backdrop fade show' />
-      <div className="modal fade show" tabIndex={-1} style={{display: 'block'}} >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <button ref={wrapper} type="button" className="btn-close" onClick={onClose}></button>
-            </div>
-            <div className="modal-body">
-              {children}
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+    <Col>
+			<button ref={wrapper} type="button" className="btn-close" onClick={onClose}></button>
+			{children}
+    </Col>
   )
 }
 
-export default Modal
+export default ModalCol
